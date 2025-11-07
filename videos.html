@@ -1,66 +1,121 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>みけまる-動画</title>
-<style>
-    .bar{
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>みけまる-動画</title>
+  <style>
+    .bar {
       width: 100%;
       height: 70px;
       background-color: white;
       position: fixed;
-      z-index: 10000px;
+      z-index: 10000;
       top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
     }
 
-    body{
-      margin-top: 70px;
+    body {
+      margin: 0;
+      padding-top: 80px;
       text-align: center;
+      font-family: "Dela Gothic One", sans-serif;
     }
 
     .oned {
-      font-family: "Dela Gothic One", sans-serif;
-      font-weight: 400;
-      font-style: normal;
       color: orange;
+      font-size: 40px;
     }
 
-    .box{
-      width: 100%;
-      text-align: center;
+    .bar a {
+      font-size: 30px;
+      color: black;
+      text-decoration: none;
     }
 
+    .video-placeholder {
+      width: 560px;
+      height: 315px;
+      background-color: #f0f0f0;
+      display: inline-block;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .video-placeholder::after {
+      content: "読み込み中...";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: gray;
+      font-size: 20px;
+    }
   </style>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet"></head>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+</head>
 <body>
-    <div class="bar">
-    <span class="oned" style="font-size: 50px;">みけまる</span>
-    <a href="https://mikemaruyt.github.io" style="font-size: 50px; display: inline-block; color: black;">Home</a>　　　 
-    <a href="https://mikemaruyt.github.io/videos.html" style="font-size: 50px; display: inline-block; color: black;">Video</a>　　　
-    <a href="https://mikemaruyt.github.io/News.html" style="font-size: 50px; display: inline-block; color: black;">News</a>　　　
-    <a href="https://mikemaruyt.github.io/Downloads.html" style="font-size: 50px; display: inline-block; color: black;">Downloads</a>
-    </div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/XdHUt4K4IiI?si=cgkHXUdCIXGx_wYt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/DZu2RK5JT2Q?si=a9QQDCzUfCUZ8AJf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/NsfRXu3L6Cs?si=vt39PAQELFEx5T4V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/L6qtj6zVcug?si=7pCWKXNYDbePIIGs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/npSzwI_5rz8?si=ULAllPlEW13S7Jp9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Nl1_e62HFOs?si=aUreBLke3D-pqloH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/WB9MLl07Ddg?si=kPakxZRVuukkMsnm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/fiIXqDhWq_w?si=7bdUi2wxx-ty_N9I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/_CojWPwUsTE?si=iF7mWbilzQOYHvPB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/J2uV3ZA_WuA?si=pjn7FCTVxIWQFEB1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/0fc-l71lQyI?si=DafoHSsl7B7yiwJs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/IRIbCiJ9CGg?si=H_1RGkutEmG-Yxjw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/bYwaFx0e2cY?si=2HntfgbpHbffTkcF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/d2xjupiLQZs?si=6p5tpqJBoLIAcHPr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/1y-QFazgXkw?si=RlMhKdWFJkP0Ccoj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/N74Cf8IMQbk?si=eTWpAiYExyMy5iCq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/YNbg8FXKhis?si=BZHzqPAek1_O80h2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Qvfs4iGwooA?si=jxJ7BzTVql1DEg-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
+  <div class="bar">
+    <span class="oned">みけまる</span>
+    <a href="https://mikemaruyt.github.io">Home</a>
+    <a href="https://mikemaruyt.github.io/videos.html">Video</a>
+    <a href="https://mikemaruyt.github.io/News.html">News</a>
+    <a href="https://mikemaruyt.github.io/Downloads.html">Downloads</a>
+  </div>
+
+  <!-- 🎥 YouTube動画を「data-src」に指定 -->
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/XdHUt4K4IiI?si=cgkHXUdCIXGx_wYt"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/DZu2RK5JT2Q?si=a9QQDCzUfCUZ8AJf"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/NsfRXu3L6Cs?si=vt39PAQELFEx5T4V"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/L6qtj6zVcug?si=7pCWKXNYDbePIIGs"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/npSzwI_5rz8?si=ULAllPlEW13S7Jp9"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/Nl1_e62HFOs?si=aUreBLke3D-pqloH"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/WB9MLl07Ddg?si=kPakxZRVuukkMsnm"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/fiIXqDhWq_w?si=7bdUi2wxx-ty_N9I"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/_CojWPwUsTE?si=iF7mWbilzQOYHvPB"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/J2uV3ZA_WuA?si=pjn7FCTVxIWQFEB1"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/0fc-l71lQyI?si=DafoHSsl7B7yiwJs"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/IRIbCiJ9CGg?si=H_1RGkutEmG-Yxjw"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/bYwaFx0e2cY?si=2HntfgbpHbffTkcF"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/d2xjupiLQZs?si=6p5tpqJBoLIAcHPr"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/1y-QFazgXkw?si=RlMhKdWFJkP0Ccoj"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/N74Cf8IMQbk?si=eTWpAiYExyMy5iCq"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/YNbg8FXKhis?si=BZHzqPAek1_O80h2"></div>
+  <div class="video-placeholder" data-src="https://www.youtube.com/embed/Qvfs4iGwooA?si=jxJ7BzTVql1DEg-0"></div>
+
+  <script>
+    // IntersectionObserverで遅延読み込み
+    const lazyLoadVideos = document.querySelectorAll('.video-placeholder');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const div = entry.target;
+          const src = div.getAttribute('data-src');
+          if (src) {
+            const iframe = document.createElement('iframe');
+            iframe.width = "560";
+            iframe.height = "315";
+            iframe.src = src;
+            iframe.title = "YouTube video player";
+            iframe.frameBorder = "0";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            iframe.referrerPolicy = "strict-origin-when-cross-origin";
+            iframe.allowFullscreen = true;
+            div.replaceWith(iframe);
+            observer.unobserve(div);
+          }
+        }
+      });
+    });
+
+    lazyLoadVideos.forEach(div => observer.observe(div));
+  </script>
 </body>
 </html>
