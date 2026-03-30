@@ -35,24 +35,14 @@
       color: black;
       text-decoration: none;
     }
-
-    .video-placeholder {
-      width: 560px;
-      height: 315px;
-      background-color: #f0f0f0;
-      display: inline-block;
-      margin: 20px 0;
-      position: relative;
+    .video{
+      width:320px;
+      display:inline-block;
+      margin:10px;
     }
-
-    .video-placeholder::after {
-      content: "読み込み中...";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: gray;
-      font-size: 20px;
+    iframe{
+      width:320px;
+      height:180px;
     }
   </style>
 
@@ -69,53 +59,31 @@
     <a href="https://mikemaruyt.github.io/Downloads.html">Downloads</a>
   </div>
 
-  <!-- 🎥 YouTube動画を「data-src」に指定 -->
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/XdHUt4K4IiI?si=cgkHXUdCIXGx_wYt"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/DZu2RK5JT2Q?si=a9QQDCzUfCUZ8AJf"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/NsfRXu3L6Cs?si=vt39PAQELFEx5T4V"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/L6qtj6zVcug?si=7pCWKXNYDbePIIGs"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/npSzwI_5rz8?si=ULAllPlEW13S7Jp9"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/Nl1_e62HFOs?si=aUreBLke3D-pqloH"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/WB9MLl07Ddg?si=kPakxZRVuukkMsnm"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/fiIXqDhWq_w?si=7bdUi2wxx-ty_N9I"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/_CojWPwUsTE?si=iF7mWbilzQOYHvPB"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/J2uV3ZA_WuA?si=pjn7FCTVxIWQFEB1"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/0fc-l71lQyI?si=DafoHSsl7B7yiwJs"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/IRIbCiJ9CGg?si=H_1RGkutEmG-Yxjw"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/bYwaFx0e2cY?si=2HntfgbpHbffTkcF"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/d2xjupiLQZs?si=6p5tpqJBoLIAcHPr"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/1y-QFazgXkw?si=RlMhKdWFJkP0Ccoj"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/N74Cf8IMQbk?si=eTWpAiYExyMy5iCq"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/YNbg8FXKhis?si=BZHzqPAek1_O80h2"></div>
-  <div class="video-placeholder" data-src="https://www.youtube.com/embed/Qvfs4iGwooA?si=jxJ7BzTVql1DEg-0"></div>
+ 
+<script>
+const channelId = "UCH4Ed73Heuuo-nG2ghwod-g"; // ←ここを入れる
+const rss = "https://www.youtube.com/feeds/videos.xml?channel_id=" + channelId;
 
-  <script>
-    // IntersectionObserverで遅延読み込み
-    const lazyLoadVideos = document.querySelectorAll('.video-placeholder');
+fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(rss))
+.then(res=>res.json())
+.then(data=>{
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const div = entry.target;
-          const src = div.getAttribute('data-src');
-          if (src) {
-            const iframe = document.createElement('iframe');
-            iframe.width = "560";
-            iframe.height = "315";
-            iframe.src = src;
-            iframe.title = "YouTube video player";
-            iframe.frameBorder = "0";
-            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-            iframe.referrerPolicy = "strict-origin-when-cross-origin";
-            iframe.allowFullscreen = true;
-            div.replaceWith(iframe);
-            observer.unobserve(div);
-          }
-        }
-      });
-    });
+const videos = document.getElementById("videos");
 
-    lazyLoadVideos.forEach(div => observer.observe(div));
-  </script>
+data.items.forEach(v=>{
+
+const id = v.link.split("v=")[1];
+
+videos.innerHTML += `
+<div class="video">
+<iframe src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen></iframe>
+<p>${v.title}</p>
+</div>
+`;
+
+});
+
+});
+</script>
 </body>
 </html>
