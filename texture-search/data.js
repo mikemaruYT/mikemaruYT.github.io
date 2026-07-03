@@ -6,9 +6,9 @@
 
 const jsonData = [
   {
-    "id": "Coast [16x]",
-    "name": "簡単トマトパスタの作り方",
-    "link": "detail.html?id=recipe-tomato", // 💡詳細ページへIDを引き渡すリンクに変更
+    "id": "Coast 16x",
+    "name": "Coast [16x]",
+    "link": "detail.html?id=coast-16x", // 💡詳細ページへIDを引き渡すリンクに変更
     "category": "レシピ",
     "tags": ["16x", "Bridge","綺麗"],
     "content": `
