@@ -6,7 +6,7 @@
 
 const jsonData = [
   {
-    "id": "Coast 16x",
+    "id": "coast-16x",
     "name": "Coast [16x]",
     "link": "detail.html?id=coast-16x", // 💡詳細ページへIDを引き渡すリンクに変更
     "category": "1.8.9",
