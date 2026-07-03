@@ -17,7 +17,7 @@ const jsonData = [
             <li>ブリッジ勢によく使われているテクスチャです。</li>
             <li>私も結構使っていてとにかくスカイがきれいなのがいい！</li>
             <li>モーションブラーとか入れると最高なのでぜひ使ってみてください！</li>
-            <li><img src="images/coast.png"></li>
+            <li><img src="images/coast.png" style="width: 40%;"></li>
         </ul>
         <h3>リンク</h3>
         <a>https://www.youtube.com/watch?v=682B1TFbV2k</a>
