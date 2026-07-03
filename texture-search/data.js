@@ -9,7 +9,7 @@ const jsonData = [
     "id": "Coast 16x",
     "name": "Coast [16x]",
     "link": "detail.html?id=coast-16x", // 💡詳細ページへIDを引き渡すリンクに変更
-    "category": "レシピ",
+    "category": "1.8.9",
     "tags": ["16x", "Bridge","綺麗"],
     "content": `
         <h3>特徴</h3>
