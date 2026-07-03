@@ -141,6 +141,9 @@
         <label><input type="checkbox" class="tag-filter" value="綺麗"><span class="tag-label">#綺麗</span></label>
         <label><input type="checkbox" class="tag-filter" value="Bridge"><span class="tag-label">#Bridge</span></label>
         <label><input type="checkbox" class="tag-filter" value="16x"><span class="tag-label">#16x</span></label>
+        <label><input type="checkbox" class="tag-filter" value="かっこいい"><span class="tag-label">#かっこいい</span></label>
+        <label><input type="checkbox" class="tag-filter" value="UHC"><span class="tag-label">#UHC</span></label>
+        <label><input type="checkbox" class="tag-filter" value="Duel"><span class="tag-label">#Duel</span></label>
     </div>
 </div>
 
@@ -212,7 +215,7 @@
             const itemHtml = `
                 <div class="list-item">
                     <div class="item-meta"><span class="badge cat-badge">${item.category}</span></div>
-                    <p><a href="${item.link}" class="item-link">${item.name}</a></p>
+                    <p><a href="${item.link}" class="item-link">${item.name}</a><img src="${item.icon}"></p>
                     <div>${tagBadges}</div>
                 </div>
             `;
