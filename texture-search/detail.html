@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>詳細ページ</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .page-title {
+            font-size: 26px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .meta-info {
+            margin-bottom: 20px;
+        }
+        .badge {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            padding: 4px 10px;
+            font-size: 13px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        .cat-badge {
+            background: #e1f5fe;
+            color: #0288d1;
+            font-weight: bold;
+        }
+        /* 💡詳細コンテンツ内の見た目を整えるCSS */
+        .page-content h3 {
+            margin-top: 30px;
+            color: #333;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+        }
+        .page-content ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← 検索一覧に戻る</a>
+
+    <div id="pageContainer">
+        <h1 id="pageTitle" class="page-title">読み込み中...</h1>
+        <div id="pageMeta" class="meta-info"></div>
+        <div id="pageContent" class="page-content"></div>
+    </div>
+
+    <script src="data.js"></script>
+
+    <script>
+        // 💡仕組みの解説：
+        // 1. URLの後ろについている「?id=recipe-tomato」から「recipe-tomato」の部分を抜き出します。
+        const urlParams = new URLSearchParams(window.location.search);
+        const pageId = urlParams.get('id');
+
+        // 2. data.jsのデータ(jsonData)の中から、IDが一致するものを1つだけ探します。
+        const pageData = jsonData.find(item => item.id === pageId);
+
+        // 3. 一致するデータが見つかった場合、画面に文字やHTMLを流し込みます。
+        if (pageData) {
+            // タイトルを書き換え
+            document.getElementById('pageTitle').textContent = pageData.name;
+            // タブのタイトル（ブラウザのタブに表示される名前）も書き換え
+            document.title = pageData.name;
+
+            // カテゴリとタグのバッジを作って書き換え
+            const catBadge = `<span class="badge cat-badge">${pageData.category}</span>`;
+            const tagBadges = pageData.tags.map(tag => `<span class="badge">#${tag}</span>`).join('');
+            document.getElementById('pageMeta').innerHTML = catBadge + tagBadges;
+
+            // 💡一番重要：本文（HTML要素）をそのまま付け加え（流し込み）
+            document.getElementById('pageContent').innerHTML = pageData.content;
+
+        } else {
+            // 4. 万が一、IDが見つからなかった場合のエラー表示
+            document.getElementById('pageTitle').textContent = "ページが見つかりませんでした";
+            document.getElementById('pageContent').innerHTML = "<p>URLが正しいかご確認ください。</p>";
+        }
+    </script>
+</body>
+</html>
