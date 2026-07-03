@@ -20,7 +20,7 @@ const jsonData = [
             <li><img src="images/coast.png" style="width: 40%;"></li>
         </ul>
         <h3>リンク</h3>
-        <a>https://www.youtube.com/watch?v=682B1TFbV2k</a>
+        <a href="https://www.youtube.com/watch?v=682B1TFbV2k" target="_blank">https://www.youtube.com/watch?v=682B1TFbV2k</a>
         
     `
   }
