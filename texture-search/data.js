@@ -8,8 +8,7 @@ const jsonData = [
   {
     "id": "Coast-16x",//id wo awaseru
     "name": "Coast [16x]",
-    "link": "detail.html?id=Coast-16x",
-    "icon": "Icons/notimage.png", // 💡詳細ページへIDを引き渡すリンクに変更
+    "link": "detail.html?id=Coast-16x", // 💡詳細ページへIDを引き渡すリンクに変更
     "category": "1.8.9",
     "tags": ["16x", "Bridge","綺麗"],
     "content": `
@@ -28,8 +27,7 @@ const jsonData = [
   {
     "id": "無限",//id wo awaseru
     "name": "無限pack",
-    "link": "detail.html?id=無限",
-    "icon": "Icons/notimage.png",  // 💡詳細ページへIDを引き渡すリンクに変更
+    "link": "detail.html?id=無限",  // 💡詳細ページへIDを引き渡すリンクに変更
     "category": "1.8.9",
     "tags": ["16x", "かっこいい","Skywars","UHC","Duel"],
     "content": `
