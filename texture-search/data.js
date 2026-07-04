@@ -48,5 +48,28 @@ const jsonData = [
         <a href="https://www.youtube.com/watch?v=daYZf2Sn6wg" target="_blank">https://www.youtube.com/watch?v=daYZf2Sn6wg</a>
         
     `
+  },
+  {
+    "id": "Gleam",//id wo awaseru
+    "name": "Gleam",
+    "link": "detail.html?id=Gleam",  // 💡詳細ページへIDを引き渡すリンクに変更
+    "category": "1.8.9",
+    "image": "Icons/Gleam.png",
+    "tags": ["128x", "かっこいい","Bedwars","RBW","おしゃれ"],
+    "content": `
+        <h3>特徴</h3>
+        <ul>
+            <li>いっやまじでこれおすすめのテクスチャです！<br>
+            とくに夜のスカイが大好きなんですよね！ベッドウォーズしてる人に人気です！<br>
+            RankedBedwarsとかでも使いやすくてほんとに使ってほしいです！<br>
+            剣はけっこう長めですね~。たぶん私が一番気に入っているテクスチャです！<br>
+            みやすい・軽い・おしゃれ・かっこいい・使いやすいの最高のテクスチャ！</li>
+            
+            <li><img src="images/Gleam.png" style="width: 40%;"></li>
+        </ul>
+        <h3>リンク</h3>
+        <a href="https://www.youtube.com/watch?v=ZC0WkUZyyms" target="_blank">https://www.youtube.com/watch?v=ZC0WkUZyyms</a>
+        
+    `
   }
 ];
