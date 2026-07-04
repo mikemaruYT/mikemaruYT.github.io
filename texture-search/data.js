@@ -18,7 +18,7 @@ const jsonData = [
             <li>ブリッジ勢によく使われているテクスチャです。</li>
             <li>私も結構使っていてとにかくスカイがきれいなのがいい！</li>
             <li>モーションブラーとか入れると最高なのでぜひ使ってみてください！</li>
-            <li><img src="images/coast.png" style="width: 40%;"></li>
+            <li><img src="images/coast.png" style="width: 70%;"></li>
         </ul>
         <h3>リンク</h3>
         <a href="https://www.youtube.com/watch?v=682B1TFbV2k" target="_blank">https://www.youtube.com/watch?v=682B1TFbV2k</a>
@@ -41,7 +41,7 @@ const jsonData = [
             めっちゃかっこよくて、skywarsとかUHCとかやってるひとには<br>
             ぜひ使ってほしいテクスチャです！</li>
             
-            <li><img src="images/無限.png" style="width: 40%;"><br>
+            <li><img src="images/無限.png" style="width: 70%;"><br>
                 引用:Forestさん</li>
         </ul>
         <h3>リンク</h3>
@@ -65,7 +65,7 @@ const jsonData = [
             剣はけっこう長めですね~。たぶん私が一番気に入っているテクスチャです！<br>
             みやすい・軽い・おしゃれ・かっこいい・使いやすいの最高のテクスチャ！</li>
             
-            <li><img src="images/Gleam.png" style="width: 40%;"></li>
+            <li><img src="images/Gleam.png" style="width: 70%;"></li>
         </ul>
         <h3>リンク</h3>
         <a href="https://www.youtube.com/watch?v=ZC0WkUZyyms" target="_blank">https://www.youtube.com/watch?v=ZC0WkUZyyms</a>
