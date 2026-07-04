@@ -10,7 +10,7 @@ const jsonData = [
     "name": "Coast [16x]",
     "link": "detail.html?id=Coast-16x", // 💡詳細ページへIDを引き渡すリンクに変更
     "category": "1.8.9",
-    "image": "Icons/notimage.png",
+    "image": "Icons/Coast.png",
     "tags": ["16x", "Bridge","綺麗"],
     "content": `
         <h3>特徴</h3>
@@ -30,7 +30,7 @@ const jsonData = [
     "name": "無限pack",
     "link": "detail.html?id=無限",  // 💡詳細ページへIDを引き渡すリンクに変更
     "category": "1.8.9",
-    "image": "Icons/notimage.png",
+    "image": "Icons/無限.png",
     "tags": ["16x", "かっこいい","Skywars","UHC","Duel"],
     "content": `
         <h3>特徴</h3>
