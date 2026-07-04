@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            max-width: 600px;
+            max-width: 700px; /* 💡画像が横に並ぶので、少し全体の横幅を広げました */
             margin: 40px auto;
             padding: 20px;
             color: #333;
@@ -63,10 +63,36 @@
             color: white;
             border-color: #007bff;
         }
+        
+        /* 💡追加：画像とテキストを横並びにするスタイル */
         .list-item {
-            padding: 15px;
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
             border-bottom: 1px solid #eee;
+            align-items: center; /* 縦方向を中央揃え */
         }
+        /* スマホなどの狭い画面では縦並びにする */
+        @media (max-width: 600px) {
+            .list-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .item-image img {
+                width: 100% !important; /* スマホでは横幅いっぱいに */
+            }
+        }
+        .item-image img {
+            width: 300px; /* 💡ご要望の300pxに固定 */
+            height: auto;
+            border-radius: 6px;
+            object-fit: cover;
+            display: block;
+        }
+        .item-info {
+            flex: 1; /* 残りの横幅をいっぱいに使う */
+        }
+
         .item-link {
             font-weight: bold;
             font-size: 18px;
@@ -97,7 +123,6 @@
             font-weight: bold;
         }
         
-        /* 💡追加：ページネーションボタンのスタイル */
         .pagination {
             display: flex;
             justify-content: center;
@@ -137,7 +162,7 @@
         <input type="text" id="keywordInput" class="input-keyword" placeholder="キーワードを入力...">
     </div>
     
-    <div class="tag-group"><!--tag-->
+    <div class="tag-group">
         <label><input type="checkbox" class="tag-filter" value="綺麗"><span class="tag-label">#綺麗</span></label>
         <label><input type="checkbox" class="tag-filter" value="Bridge"><span class="tag-label">#Bridge</span></label>
         <label><input type="checkbox" class="tag-filter" value="16x"><span class="tag-label">#16x</span></label>
@@ -154,12 +179,12 @@
 <script src="data.js"></script>
 
 <script>
-    // 💡設定：1ページに表示する件数（テスト用に2件にしています。本番は20に書き換えてください）
+    // 💡本番用に20件にする場合は、ここを 20 に書き換えてください
     const itemsPerPage = 2; 
     
-    let allData = jsonData;       // 全データ
-    let filteredData = [];        // 検索で絞り込まれたデータ
-    let currentPage = 1;          // 今何ページ目にいるか
+    let allData = jsonData;       
+    let filteredData = [];        
+    let currentPage = 1;          
 
     const dataList = document.getElementById('dataList');
     const paginationContainer = document.getElementById('pagination');
@@ -167,28 +192,22 @@
     const categorySelect = document.getElementById('categorySelect');
     const tagFilters = document.querySelectorAll('.tag-filter');
 
-    // 1. データを検索・絞り込む関数（コンボボックスもここで判定）
     function filterList() {
         const keyword = keywordInput.value.toLowerCase().trim();
-        const selectedCategory = categorySelect.value; // コンボボックスの選択値
+        const selectedCategory = categorySelect.value; 
         
         const selectedTags = Array.from(tagFilters)
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.value);
 
-        // 全データから条件に合うものを抽出
         filteredData = allData.filter(item => {
             const matchesKeyword = item.name.toLowerCase().includes(keyword);
-            
-            // 💡修正ポイント：選択されたカテゴリとデータ側のカテゴリが一致するか判定
             const matchesCategory = selectedCategory === "" || item.category === selectedCategory;
-            
             const matchesTags = selectedTags.every(tag => item.tags.includes(tag));
 
             return matchesKeyword && matchesCategory && matchesTags;
         });
 
-        // 検索されたら、ページを「1ページ目」にリセットして表示
         currentPage = 1;
         renderPage();
     }
@@ -203,39 +222,40 @@
             return;
         }
 
-        // 💡重要：現在のページに応じたデータの開始位置と終了位置を計算
-        // 例: 1ページ目 -> 0番目から2番目の手前まで切り出す
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const pageItems = filteredData.slice(startIndex, endIndex);
 
-        // 切り出したデータだけをHTMLに出力
         pageItems.forEach(item => {
             const tagBadges = item.tags.map(tag => `<span class="badge">#${tag}</span>`).join('');
+            
+            // 💡データに画像がない場合の安全対策（もし"image"を書き忘れてもNO IMAGE画像等で代用可能にする）
+            const imgSrc = item.image ? item.image : 'images/noimage.png';
+
+            // 💡HTMLの構造を「左側に画像、右側にテキスト」になるように変更しました
             const itemHtml = `
                 <div class="list-item">
-                    <div class="item-meta"><span class="badge cat-badge">${item.category}</span></div>
-                    <p><a href="${item.link}" class="item-link">${item.name}</a></p>
-                    <div>${tagBadges}</div>
+                    <div class="item-image">
+                        <a href="${item.link}"><img src="${imgSrc}" alt="${item.name}"></a>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-meta"><span class="badge cat-badge">${item.category}</span></div>
+                        <p><a href="${item.link}" class="item-link">${item.name}</a></p>
+                        <div>${tagBadges}</div>
+                    </div>
                 </div>
             `;
             dataList.insertAdjacentHTML('beforeend', itemHtml);
         });
 
-        // ページネーションボタンを更新
         setupPagination();
     }
 
-    // 3. ページ送りボタンを自動生成する関数
     function setupPagination() {
         paginationContainer.innerHTML = '';
-
-        // 総ページ数を計算（例: 5件データがあって1ページ2件なら、3ページ必要）
         const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-        
-        if (totalPages <= 1) return; // 1ページで収まる場合はボタンを出さない
+        if (totalPages <= 1) return; 
 
-        // 「前へ」ボタン
         const prevBtn = document.createElement('button');
         prevBtn.textContent = '前へ';
         prevBtn.className = 'page-btn';
@@ -246,7 +266,6 @@
         });
         paginationContainer.appendChild(prevBtn);
 
-        // 数字ボタン (1, 2, 3...)
         for (let i = 1; i <= totalPages; i++) {
             const btn = document.createElement('button');
             btn.textContent = i;
@@ -260,7 +279,6 @@
             paginationContainer.appendChild(btn);
         }
 
-        // 「次へ」ボタン
         const nextBtn = document.createElement('button');
         nextBtn.textContent = '次へ';
         nextBtn.className = 'page-btn';
@@ -272,12 +290,10 @@
         paginationContainer.appendChild(nextBtn);
     }
 
-    // イベントリスナーの設定
     keywordInput.addEventListener('input', filterList);
     categorySelect.addEventListener('change', filterList);
     tagFilters.forEach(checkbox => checkbox.addEventListener('change', filterList));
 
-    // 初回実行（最初は全データを対象にフィルターを通す）
     filterList();
 </script>
 
