@@ -146,6 +146,11 @@
             color: #aaa;
             cursor: not-allowed;
         }
+
+        .ICONS{
+            width: 300px;
+            image-rendering: crisp-edges;
+        }
     </style>
 </head>
 <body>
@@ -236,7 +241,7 @@
             const itemHtml = `
                 <div class="list-item">
                     <div class="item-image">
-                        <a href="${item.link}"><img src="${imgSrc}" alt="${item.name}"></a>
+                        <a href="${item.link}"><img src="${imgSrc}" class="ICONS" alt="${item.name}"></a>
                     </div>
                     <div class="item-info">
                         <div class="item-meta"><span class="badge cat-badge">${item.category}</span></div>
