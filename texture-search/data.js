@@ -141,5 +141,28 @@ const jsonData = [
         <a href="https://www.youtube.com/watch?v=I-vjeyl2IhM" target="_blank">https://www.youtube.com/watch?v=I-vjeyl2IhM</a>
         
     `
+  },
+  {
+    "id": "FatCat",//id wo awaseru
+    "name": "Fat cat 16x",
+    "link": "detail.html?id=FatCat",  // 💡詳細ページへIDを引き渡すリンクに変更
+    "category": "1.8.9",
+    "image": "Icons/fatcat.png",
+    "tags": ["かわいい","シンプル","Bedwars","綺麗","16x"],
+    "content": `
+        <h3>特徴</h3>
+        <ul>
+            <li>有名なテクスチャｷﾀｱｱｱｱ！(ﾟ∀ﾟ)ｱﾋｬ！これしってるひと絶対いるでしょ！<br>
+            Youtuberのfat catさんが作ったテクスチャですね。とくに羊毛に猫の顔あってかわちい<br>
+            全体的にシンプルで見やすいしふわーってした雰囲気でめっちゃいいですよ～。<br>
+            私とのこのテクスチャの出会いはASMR動画でしたね。(Bedwarsの)<br>
+            私のパックフォルダーの中は基本的に16xがおおいですが、その16xのなかでもこれは結構上位ですね。</li>
+            
+            <li><img src="images/fatcat.png" style="width: 70%;"></li>
+        </ul>
+        <h3>リンク</h3>
+        <a href="https://www.youtube.com/watch?v=d4xvhjdDsHk" target="_blank">https://www.youtube.com/watch?v=d4xvhjdDsHk</a>
+        
+    `
   }
 ];
