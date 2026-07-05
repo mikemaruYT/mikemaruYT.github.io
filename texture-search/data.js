@@ -135,7 +135,7 @@ const jsonData = [
             Dewierさんのテクスチャでよく見るこの羊毛のテクスチャもほんとに見やすくて敵と戦いやすいですね。<br>
             色も鮮やかで全体的にシンプルでそれでいてかっこよくて、16xなので軽量化にもなるというこれ以上のものがあるか?ってかんじのテクスチャですね(笑)</li>
             
-            <li><img src="images/Dewier20k" style="width: 70%;"></li>
+            <li><img src="images/Dewier20k.png" style="width: 70%;"></li>
         </ul>
         <h3>リンク</h3>
         <a href="https://www.youtube.com/watch?v=I-vjeyl2IhM" target="_blank">https://www.youtube.com/watch?v=I-vjeyl2IhM</a>
