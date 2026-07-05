@@ -5,12 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>みけまるの家</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <style>
+
+        html {
+            scroll-behavior: smooth; /* スクロールを滑らかにする */
+            scroll-padding-top: 90px; /* ヘッダーの高さ70px + 余白20px */
+        }
+        
+        /* 全体のリセットと基本スタイルの設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* 固定（ついてくる）ヘッダーのスタイル */
+        .site-header {
+            position: fixed; /* 画面上部に固定 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* 他のコンテンツより前面に表示 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        /* ロゴ部分 */
+        .header-logo a {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333333;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        /* ナビゲーションメニュー */
+        .header-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px; /* メニュー間の余白 */
+        }
+
+        .header-nav a {
+            font-size: 16px;
+            color: #555555;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        /* ホバー時のエフェクト（下線が伸びるアニメーション） */
+        .header-nav a:hover {
+            color: #007bff; /* アクティブカラー */
+        }
+        .header-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #007bff;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .header-nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* ページコンテンツのプレースホルダー（スクロール確認用） */
+        .content-placeholder {
+            margin-top: 70px; /* ヘッダーの高さ分だけ上に余白を作る */
+            padding: 40px 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .dummy-section {
+            background-color: #ffffff;
+            padding: 60px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        
+    </style>
 </head>
 <body>
-    <div class="topbar" class="topbar"><!-- IGNORE -->
-        <img src="images/headericon.png" alt="Logo" class="topbarimg">
-        <a href="https://mikemaruyt.github.io" class="topbara">ホーム</a>
-    </div>
+
+    <header class="site-header">
+        <div class="header-logo">
+            <a href="#">みけまるの部屋</a>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#home">自己紹介</a></li>
+                <li><a href="#texture">テクスチャ検索</a></li>
+                <li><a href="#video">動画コンテンツ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-placeholder">
+        <section id="home" class="dummy-section">
+            <h2>自己紹介</h2>
+            <p>RBWとBridgerLandによくいる猫です。マイクラほんとに好きです。たまに萎えるけどね。</p>
+        </section>
+        
+        <section id="texture" class="dummy-section">
+            <h2>みけまるのテクスチャ置き場</h2>
+            <p>たくさんのテクスチャの中から好みのテクスチャをみつけることができます！</p>
+            <br>
+            <a class="button" href="https://mikemaruyt.github.io/texture-search/">
+                <i class="fab fa-sistrix"></i>
+                探す
+            </a>
+        </section>
+
+        <section id="video" class="dummy-section">
+            <h2>動画コンテンツ</h2>
+            <p>いままでアップロードしてきた動画の中からおすすめの動画を見つける</p>
+            <p>動画のネタのリクエスト。</p>
+            <br>
+            <p>
+            <a class="button" href="https://mikemaruyt.github.io/videos/">
+                <i class="fab fa-youtube"></i>
+                ページへ飛ぶ
+            </a>
+            </p>
+        </section>
+        
+        <div style="height: 800px;"></div>
+    </main>
+
 </body>
 </html>
