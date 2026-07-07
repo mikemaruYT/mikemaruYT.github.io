@@ -164,5 +164,28 @@ const jsonData = [
         <a href="https://www.youtube.com/watch?v=d4xvhjdDsHk" target="_blank">https://www.youtube.com/watch?v=d4xvhjdDsHk</a>
         
     `
+  },
+  {
+    "id": "glorious",//id wo awaseru
+    "name": "Glorious 16x",
+    "link": "detail.html?id=glorious",  // 💡詳細ページへIDを引き渡すリンクに変更
+    "category": "1.8.9",
+    "image": "Icons/glorious.png",
+    "tags": ["かっこいい","Bedwars","綺麗","16x","Duel"],
+    "content": `
+        <h3>特徴</h3>
+        <ul>
+            <li>もうこれはド定番だよね！ほんとにこのテクスチャ綺麗でBedwarsでめっちゃつかいやすいです！<br>
+            前に2muuさんとかが使ってたイメージありますね。あとほんとに昼のSkyおすすめです。<br>
+            けっこう明るめって感じではないんですけど、美しい世界観が一回使ったら刺さりますよ。<br>
+            剣は短めだった気がします。最近はあんまりつかってない...（笑）<br>
+            初心者の時はめっちゃ使ってたし、いまつかっても最高のテクスチャなのでぜひ使ってみて下さい。</li>
+            
+            <li><img src="images/glorious.png" style="width: 70%;"></li>
+        </ul>
+        <h3>リンク</h3>
+        <a href="https://www.youtube.com/watch?v=0uMHr5YhIAE" target="_blank">https://www.youtube.com/watch?v=0uMHr5YhIAE</a>
+        
+    `
   }
 ];
