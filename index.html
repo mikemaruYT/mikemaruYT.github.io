@@ -266,21 +266,13 @@
             const rName = document.getElementById('recommendName');
             const rTags = document.getElementById('recommendTags');
 
-            // 💡画像表示の安全対策
-            let imgSrc = item.image ? item.image : 'images/noimage.png';
-            
-            // 💡もし検索フォルダの階層（一つ上の階層等）にIconsフォルダがある場合は、自動的にパスを調整
-            // 必要に応じてここのパスを 'texture-search/' + imgSrc などに変えることも可能です
-            
+            // 💡 JSONの image に書いてあるテキストをそのまま使う
+            const imgSrc = item.image;
             const tagBadges = item.tags.map(tag => `<span class="badge">#${tag}</span>`).join('');
 
-            // HTMLにデータを流し込む（詳細ページリンクも引っ張る）
-            // 💡注意：ホームページからテクスチャ詳細へ飛ぶ場合、リンクのパス（フォルダ名）がズレているなら 
-            // `texture-search/${item.link}` のように書き換えてください。
-            const textureLink = item.link; 
-
-            rImgBox.innerHTML = `<a href="${textureLink}"><img src="${imgSrc}" class="recommend-img" alt="${item.name}" onerror="this.src='images/noimage.png';"></a>`;
-            rName.innerHTML = `<a href="${textureLink}" class="recommend-link">${item.name}</a>`;
+            // HTMLにデータを流し込む
+            rImgBox.innerHTML = `<a href="${item.link}"><img src="${imgSrc}" class="recommend-img" alt="${item.name}"></a>`;
+            rName.innerHTML = `<a href="${item.link}" class="recommend-link">${item.name}</a>`;
             rTags.innerHTML = `<span class="badge cat-badge">${item.category}</span>${tagBadges}`;
 
             // 枠を表示
