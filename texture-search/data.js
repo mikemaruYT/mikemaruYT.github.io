@@ -187,5 +187,55 @@ const jsonData = [
         <a href="https://www.youtube.com/watch?v=0uMHr5YhIAE" target="_blank">https://www.youtube.com/watch?v=0uMHr5YhIAE</a>
         
     `
+  },
+  {
+    "id": "rivera",//id wo awaseru
+    "name": "Rivera 16x",
+    "link": "detail.html?id=rivera",  // 💡詳細ページへIDを引き渡すリンクに変更
+    "category": "1.8.9",
+    "image": "Icons/rivera.png",
+    "tags": ["Bedwars","綺麗","16x","Duel","Bridge"],
+    "content": `
+        <h3>特徴</h3>
+        <ul>
+            <li>これはやっぱりブリッジ勢の人とかが使っているイメージが高いですね。<br>
+            Doogileさんとかが使ってたのを見たことあるし、自分もブリッジするときたまにつかったりしますね。<br>
+            人によると思いますが、白にちかい昼よりも紺色っぽい夜のスカイのほうがブリッジもしやすくて好きですね。<br>
+            うーるは完全デフォルトって感じです。ベッドウォーズでもけっこうつかいやすくて、BWだったら夕方ぐらいかなって感じですね<br>
+            なんかめっちゃこれでASMRするとチルくなりますよ。かなりいいテクスチャなので使ってみてください。<br>
+            わたしの尊敬するRanked Bedwars PlayerであるVaesさんもつかってましたね。<br>
+            これ一応リンクです。<a href="https://www.youtube.com/watch?v=RpNH_9rAhDg">30 Minutes Bedwars ASMR Keyboard & Mouse Sounds | Hypixel Bedwars</a></li>
+            
+            <li><img src="images/rivera.png" style="width: 70%;"></li>
+            <li>引用: Vaesさん</li>
+        </ul>
+        <h3>リンク</h3>
+        <a href="https://www.youtube.com/watch?v=YWHhyzM_n-M" target="_blank">https://www.youtube.com/watch?v=YWHhyzM_n-M</a>
+        
+    `
+  },
+  {
+    "id": "supay",//id wo awaseru
+    "name": "Supay 16x",
+    "link": "detail.html?id=supay",  // 💡詳細ページへIDを引き渡すリンクに変更
+    "category": "1.8.9",
+    "image": "Icons/glorious.png",
+    "tags": ["かっこいい","Bedwars","綺麗","16x","Duel","シンプル"],
+    "content": `
+        <h3>特徴</h3>
+        <ul>
+            <li>これほんと大好き！羊毛のデザインも好きだし、あと剣のかんじもほんとに大好きです!<br>
+            最初に知ったのは一回PVPに萎えた時にもういっかいやるきっかけになったIncUnderScoreさんがつかってたとこですね。<br>
+            あとほんとに鉄とか金が縦長なのもオリジナリティーがあってポイント高いですね～。<br>
+            クロスヘアーも私の好みのこの真ん中にﾁｮﾝｯ(?)ってあって四方から生えてる(?)やつですね！！！！^w^<br>
+            冗談抜きでこれはみんな使うべき神テクスチャだと思うので、使ってくれないと夢になって私が出てきますよ...?</li>
+            
+            <li><img src="images/supay.png" style="width: 70%;"></li>
+            <li>引用:IncUnderScoreさん</li>
+        </ul>
+        <h3>リンク</h3>
+        <a href="https://www.youtube.com/watch?v=hZhrLr_KI6E" target="_blank">https://www.youtube.com/watch?v=hZhrLr_KI6E</a>
+        
+    `
   }
 ];
