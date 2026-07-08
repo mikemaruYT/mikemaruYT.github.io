@@ -102,7 +102,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* 👇 追加：「あなたにおすすめ」エリアのスタイル */
+        /* 「あなたにおすすめ」エリアのスタイル */
         .recommend-container {
             background: linear-gradient(135deg, #fff9db, #fff3bf);
             border: 2px solid #fab005;
@@ -159,7 +159,6 @@
             color: #0288d1;
             font-weight: bold;
         }
-        /* 👆 ここまで追加 */
 
         /* 自己紹介セクション用のスタイル */
         .home-section-content {
@@ -180,7 +179,7 @@
             overflow: hidden;
         }
         .profile-img-container img {
-            width: 80%; /* 💡ここを変えると自己紹介の画像の大きさが変わります */
+            width: 80%;
             height: auto;
             object-fit: contain;
         }
@@ -214,6 +213,7 @@
                 </div>
             </div>
         </div>
+
         <section id="home" class="dummy-section">
             <div class="home-section-content">
                 <div class="home-text">
@@ -252,10 +252,9 @@
         <div style="height: 800px;"></div>
     </main>
 
-    <script src="texture-search/data.js"></script>
+    <script src="data.js"></script>
     <script>
         function showRecommendation() {
-            // data.js の jsonData が読み込めているかチェック
             if (typeof jsonData === 'undefined' || jsonData.length === 0) return;
 
             // ランダムで1つ選ぶ
@@ -267,20 +266,27 @@
             const rName = document.getElementById('recommendName');
             const rTags = document.getElementById('recommendTags');
 
-            // 画像がない場合のフォールバック
-            const imgSrc = item.image ? item.image : 'images/noimage.png';
+            // 💡画像表示の安全対策
+            let imgSrc = item.image ? item.image : 'images/noimage.png';
+            
+            // 💡もし検索フォルダの階層（一つ上の階層等）にIconsフォルダがある場合は、自動的にパスを調整
+            // 必要に応じてここのパスを 'texture-search/' + imgSrc などに変えることも可能です
+            
             const tagBadges = item.tags.map(tag => `<span class="badge">#${tag}</span>`).join('');
 
-            // HTMLにデータを流し込む
-            rImgBox.innerHTML = `<a href="${item.link}"><img src="${imgSrc}" class="recommend-img" alt="${item.name}"></a>`;
-            rName.innerHTML = `<a href="${item.link}" class="recommend-link">${item.name}</a>`;
+            // HTMLにデータを流し込む（詳細ページリンクも引っ張る）
+            // 💡注意：ホームページからテクスチャ詳細へ飛ぶ場合、リンクのパス（フォルダ名）がズレているなら 
+            // `texture-search/${item.link}` のように書き換えてください。
+            const textureLink = item.link; 
+
+            rImgBox.innerHTML = `<a href="${textureLink}"><img src="${imgSrc}" class="recommend-img" alt="${item.name}" onerror="this.src='images/noimage.png';"></a>`;
+            rName.innerHTML = `<a href="${textureLink}" class="recommend-link">${item.name}</a>`;
             rTags.innerHTML = `<span class="badge cat-badge">${item.category}</span>${tagBadges}`;
 
-            // 準備ができたら画面に表示
+            // 枠を表示
             rArea.style.display = 'block';
         }
 
-        // ページを開いた時に実行
         window.addEventListener('DOMContentLoaded', showRecommendation);
     </script>
 </body>
