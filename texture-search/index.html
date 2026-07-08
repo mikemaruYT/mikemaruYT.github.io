@@ -14,54 +14,6 @@
             padding: 20px;
             color: #333;
         }
-
-        /* 👇 追加：「あなたにおすすめ」エリアのスタイル */
-        .recommend-container {
-            background: linear-gradient(135deg, #fff9db, #fff3bf);
-            border: 2px solid #fab005;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .recommend-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #e67e22;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .recommend-box {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: #ffffff;
-            padding: 15px;
-            border-radius: 6px;
-        }
-        .recommend-img {
-            width: 100px; /* おすすめ用に見やすいサイズに固定 */
-            height: 100px;
-            border-radius: 6px;
-            object-fit: cover;
-            image-rendering: pixelated;
-        }
-        .recommend-info h3 {
-            margin: 0 0 10px 0;
-            font-size: 18px;
-        }
-        .recommend-link {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .recommend-link:hover {
-            text-decoration: underline;
-        }
-        /* 👆 ここまで追加 */
-
         .search-container {
             background: #f9f9f9;
             padding: 20px;
@@ -130,15 +82,6 @@
             }
             .item-image img {
                 width: 100% !important; /* スマホでは横幅いっぱいに */
-            }
-            /* おすすめエリアもスマホで縦並びにする設定 */
-            .recommend-box {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .recommend-img {
-                width: 100%;
-                height: auto;
             }
         }
         .item-image img {
@@ -216,18 +159,7 @@
 
 <h2>テクスチャパック検索</h2>
 <a href="https://mikemaruyt.github.io/">ホームへ戻る</a>
-<br><br>
 
-<div id="recommendArea" class="recommend-container" style="display: none;">
-    <div class="recommend-title">✨ あなたにおすすめのテクスチャ</div>
-    <div class="recommend-box">
-        <div id="recommendImgBox"></div>
-        <div class="recommend-info">
-            <h3 id="recommendName"></h3>
-            <div id="recommendTags"></div>
-        </div>
-    </div>
-</div>
 <div class="search-container">
     <div class="flex-group">
         <select id="categorySelect" class="select-category">
@@ -251,7 +183,7 @@
         <label><input type="checkbox" class="tag-filter" value="おしゃれ"><span class="tag-label">#おしゃれ</span></label>
         <label><input type="checkbox" class="tag-filter" value="Bedwars"><span class="tag-label">#Bedwars</span></label>
         <label><input type="checkbox" class="tag-filter" value="シンプル"><span class="tag-label">#シンプル</span></label>
-        <label><input type="checkbox" class="tag-filter" value="かわいい"><span class="tag-label">#かわいい</span></label>
+        <label><input type="checkbox" class="tag-filter" value="かわいい"><span class="tag-label">#かわいい</label>
     </div>
 </div>
 
@@ -259,7 +191,7 @@
 
 <div id="pagination" class="pagination"></div>
 
-<script src="texture-search/data.js"></script>
+<script src="data.js"></script>
 
 <script>
     // 💡本番用に20件にする場合は、ここを 20 に書き換えてください
@@ -274,32 +206,6 @@
     const keywordInput = document.getElementById('keywordInput');
     const categorySelect = document.getElementById('categorySelect');
     const tagFilters = document.querySelectorAll('.tag-filter');
-
-    // 👇 追加：「あなたにおすすめ」をランダムで選んで表示する関数
-    function showRecommendation() {
-        if (!allData || allData.length === 0) return;
-
-        // json（jsonData）の中からランダムに1個選ぶ
-        const randomIndex = Math.floor(Math.random() * allData.length);
-        const recommendItem = allData[randomIndex];
-
-        const rArea = document.getElementById('recommendArea');
-        const rImgBox = document.getElementById('recommendImgBox');
-        const rName = document.getElementById('recommendName');
-        const rTags = document.getElementById('recommendTags');
-
-        const imgSrc = recommendItem.image ? recommendItem.image : 'images/noimage.png';
-        const tagBadges = recommendItem.tags.map(tag => `<span class="badge">#${tag}</span>`).join('');
-
-        // HTMLを流し込む
-        rImgBox.innerHTML = `<a href="${recommendItem.link}"><img src="${imgSrc}" class="recommend-img" alt="${recommendItem.name}"></a>`;
-        rName.innerHTML = `<a href="${recommendItem.link}" class="recommend-link">${recommendItem.name}</a>`;
-        rTags.innerHTML = `<span class="badge cat-badge">${recommendItem.category}</span>${tagBadges}`;
-
-        // 非表示にしていた枠を表示する
-        rArea.style.display = 'block';
-    }
-    // 👆 ここまで追加
 
     function filterList() {
         const keyword = keywordInput.value.toLowerCase().trim();
@@ -403,8 +309,6 @@
     categorySelect.addEventListener('change', filterList);
     tagFilters.forEach(checkbox => checkbox.addEventListener('change', filterList));
 
-    // 💡初回読み込み時におすすめを表示＆リストをフィルタリング
-    showRecommendation();
     filterList();
 </script>
 

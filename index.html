@@ -67,9 +67,9 @@
             padding: 5px 0;
         }
 
-        /* ホバー時のエフェクト（下線が伸びるアニメーション） */
+        /* ホバー時のエフェクト */
         .header-nav a:hover {
-            color: #007bff; /* アクティブカラー */
+            color: #007bff;
         }
         .header-nav a::after {
             content: '';
@@ -86,7 +86,7 @@
             transform: scaleX(1);
         }
 
-        /* ページコンテンツのプレースホルダー（スクロール確認用） */
+        /* ページコンテンツのプレースホルダー */
         .content-placeholder {
             margin-top: 70px; /* ヘッダーの高さ分だけ上に余白を作る */
             padding: 40px 30px;
@@ -102,35 +102,88 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* 👇 ここから画像配置用の追加・修正CSS */
-        .texture-section-content {
+        /* 👇 追加：「あなたにおすすめ」エリアのスタイル */
+        .recommend-container {
+            background: linear-gradient(135deg, #fff9db, #fff3bf);
+            border: 2px solid #fab005;
+            padding: 30px 60px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .recommend-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 15px;
+        }
+        .recommend-box {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+        }
+        .recommend-img {
+            width: 120px; /* アイコンの大きさを調整 */
+            height: 120px;
+            border-radius: 6px;
+            object-fit: cover;
+            image-rendering: pixelated; /* マイクラのドット絵を綺麗に見せる */
+        }
+        .recommend-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+        }
+        .recommend-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .recommend-link:hover {
+            text-decoration: underline;
+        }
+        .badge {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            padding: 4px 10px;
+            font-size: 13px;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+        .cat-badge {
+            background: #e1f5fe;
+            color: #0288d1;
+            font-weight: bold;
+        }
+        /* 👆 ここまで追加 */
+
+        /* 自己紹介セクション用のスタイル */
+        .home-section-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
         }
-        
-        .texture-text {
+        .home-text {
             flex: 1;
         }
-
-        /* 画像を入れる枠（位置固定用） */
-        .texture-img-container {
-            width: 300px;  /* 横幅を固定 */
-            height: 200px; /* 高さを固定（必要に応じて調整してください） */
+        .profile-img-container {
+            width: 300px;
+            height: 200px;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
         }
-
-        /* 画像自体の大きさ設定 */
-        .texture-img-container img {
-            width: 80%;    /* 💡ここの数字（%やpx）を変えると、画像の大きさが変わります！ */
-            height: auto;  /* 縦横比を崩さない設定 */
+        .profile-img-container img {
+            width: 80%; /* 💡ここを変えると自己紹介の画像の大きさが変わります */
+            height: auto;
             object-fit: contain;
         }
-        /* 👆 ここまで */
 
     </style>
 </head>
@@ -150,27 +203,37 @@
     </header>
 
     <main class="content-placeholder">
+        
+        <div id="recommendArea" class="recommend-container" style="display: none;">
+            <div class="recommend-title">✨ あなたにおすすめのテクスチャ</div>
+            <div class="recommend-box">
+                <div id="recommendImgBox"></div>
+                <div class="recommend-info">
+                    <h3 id="recommendName"></h3>
+                    <div id="recommendTags"></div>
+                </div>
+            </div>
+        </div>
         <section id="home" class="dummy-section">
-            <h2>自己紹介</h2>
-            <p>RBWとBridgerLandによくいる猫です。マイクラほんとに好きです。たまに萎えるけどね。</p>
-                <div class="texture-img-container">
+            <div class="home-section-content">
+                <div class="home-text">
+                    <h2>自己紹介</h2>
+                    <p>RBWとBridgerLandによくいる猫です。マイクラほんとに好きです。たまに萎えるけどね。</p>
+                </div>
+                <div class="profile-img-container">
                     <img src="images/pro.png" alt="プロフィール画像">
                 </div>
-            </section>
+            </div>
+        </section>
         
         <section id="texture" class="dummy-section">
-            <div class="texture-section-content">
-                <div class="texture-text">
-                    <h2>みけまるのテクスチャ置き場</h2>
-                    <p>たくさんのテクスチャの中から好みのテクスチャをみつけることができます！</p>
-                    <br>
-                    <a class="button" href="https://mikemaruyt.github.io/texture-search/">
-                        <i class="fab fa-sistrix"></i>
-                        探す
-                    </a>
-                </div>
-                
-            </div>
+            <h2>みけまるのテクスチャ置き場</h2>
+            <p>たくさんのテクスチャの中から好みのテクスチャをみつけることができます！</p>
+            <br>
+            <a class="button" href="https://mikemaruyt.github.io/texture-search/">
+                <i class="fab fa-sistrix"></i>
+                探す
+            </a>
         </section>
 
         <section id="video" class="dummy-section">
@@ -189,5 +252,36 @@
         <div style="height: 800px;"></div>
     </main>
 
+    <script src="texture-search/data.js"></script>
+    <script>
+        function showRecommendation() {
+            // data.js の jsonData が読み込めているかチェック
+            if (typeof jsonData === 'undefined' || jsonData.length === 0) return;
+
+            // ランダムで1つ選ぶ
+            const randomIndex = Math.floor(Math.random() * jsonData.length);
+            const item = jsonData[randomIndex];
+
+            const rArea = document.getElementById('recommendArea');
+            const rImgBox = document.getElementById('recommendImgBox');
+            const rName = document.getElementById('recommendName');
+            const rTags = document.getElementById('recommendTags');
+
+            // 画像がない場合のフォールバック
+            const imgSrc = item.image ? item.image : 'images/noimage.png';
+            const tagBadges = item.tags.map(tag => `<span class="badge">#${tag}</span>`).join('');
+
+            // HTMLにデータを流し込む
+            rImgBox.innerHTML = `<a href="${item.link}"><img src="${imgSrc}" class="recommend-img" alt="${item.name}"></a>`;
+            rName.innerHTML = `<a href="${item.link}" class="recommend-link">${item.name}</a>`;
+            rTags.innerHTML = `<span class="badge cat-badge">${item.category}</span>${tagBadges}`;
+
+            // 準備ができたら画面に表示
+            rArea.style.display = 'block';
+        }
+
+        // ページを開いた時に実行
+        window.addEventListener('DOMContentLoaded', showRecommendation);
+    </script>
 </body>
 </html>
