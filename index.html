@@ -102,7 +102,36 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
+        /* 👇 ここから画像配置用の追加・修正CSS */
+        .texture-section-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
         
+        .texture-text {
+            flex: 1;
+        }
+
+        /* 画像を入れる枠（位置固定用） */
+        .texture-img-container {
+            width: 300px;  /* 横幅を固定 */
+            height: 200px; /* 高さを固定（必要に応じて調整してください） */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* 画像自体の大きさ設定 */
+        .texture-img-container img {
+            width: 80%;    /* 💡ここの数字（%やpx）を変えると、画像の大きさが変わります！ */
+            height: auto;  /* 縦横比を崩さない設定 */
+            object-fit: contain;
+        }
+        /* 👆 ここまで */
+
     </style>
 </head>
 <body>
@@ -127,13 +156,20 @@
         </section>
         
         <section id="texture" class="dummy-section">
-            <h2>みけまるのテクスチャ置き場</h2>
-            <p>たくさんのテクスチャの中から好みのテクスチャをみつけることができます！</p>
-            <br>
-            <a class="button" href="https://mikemaruyt.github.io/texture-search/">
-                <i class="fab fa-sistrix"></i>
-                探す
-            </a>
+            <div class="texture-section-content">
+                <div class="texture-text">
+                    <h2>みけまるのテクスチャ置き場</h2>
+                    <p>たくさんのテクスチャの中から好みのテクスチャをみつけることができます！</p>
+                    <br>
+                    <a class="button" href="https://mikemaruyt.github.io/texture-search/">
+                        <i class="fab fa-sistrix"></i>
+                        探す
+                    </a>
+                </div>
+                <div class="texture-img-container">
+                    <img src="pro.png" alt="プロフィール画像">
+                </div>
+            </div>
         </section>
 
         <section id="video" class="dummy-section">
