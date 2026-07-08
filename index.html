@@ -271,8 +271,8 @@
             const tagBadges = item.tags.map(tag => `<span class="badge">#${tag}</span>`).join('');
 
             // HTMLにデータを流し込む
-            rImgBox.innerHTML = `<a href="${item.link}"><img src="${imgSrc}" class="recommend-img" alt="${item.name}"></a>`;
-            rName.innerHTML = `<a href="${item.link}" class="recommend-link">${item.name}</a>`;
+            rImgBox.innerHTML = `<a href="texture-search/${item.link}"><img src="${imgSrc}" class="recommend-img" alt="${item.name}"></a>`;
+            rName.innerHTML = `<a href="texture-search/${item.link}" class="recommend-link">${item.name}</a>`;
             rTags.innerHTML = `<span class="badge cat-badge">${item.category}</span>${tagBadges}`;
 
             // 枠を表示
