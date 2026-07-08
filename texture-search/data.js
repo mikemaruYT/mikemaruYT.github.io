@@ -219,7 +219,7 @@ const jsonData = [
     "name": "Supay 16x",
     "link": "detail.html?id=supay",  // 💡詳細ページへIDを引き渡すリンクに変更
     "category": "1.8.9",
-    "image": "Icons/glorious.png",
+    "image": "Icons/supay.png",
     "tags": ["かっこいい","Bedwars","綺麗","16x","Duel","シンプル"],
     "content": `
         <h3>特徴</h3>
